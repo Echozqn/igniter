@@ -43,7 +43,7 @@ $t_{\text {act }}^{i j}=k_{\text {act }}^{i} \cdot\left(1+\alpha_{\text {cache }
 * Description of the required operating system:
   - Ubuntu 18.04
 * Required software libraries: Triton, NVIDIA Driver, cuDNN, CUDA, Python3, TensorRT, Docker, NVIDIA Container Toolkit, Torchvision, Torch, Pandas, Scikit-image, Numpy, Scipy, Pillow.
-* Input dataset required for executing code or generating input data: ImageNet dataset and VOC2012 dataset.
+* Input dataset required for executing code or generating input data: [ImageNet](https://image-net.org/download.php) dataset and [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) dataset.
 
 
 
@@ -254,7 +254,7 @@ python3 start.py -f 1590 -p 300 -s 80 # (1590,300,80) is the config of V100 GPU.
 ~~~
 
 #### Profiling model parameters:
-
+We profiling the model parameters of 4 models: **AlexNet, VGG-19, ResNet-50 and SSD**.
 ~~~bash
 python3 getDataSize.py # Getting the input and output size of different models.
 # Computing the kernel of different models.
@@ -295,7 +295,7 @@ The configured file is shown in `i-Gniter/Algorithm/config`, which is the result
 
 #### Real Input Data
 
-You can provide data to be used with every inference request made by program in a JSON file. The program will use the provided data in a round-robin order when sending inference requests. Skip this section if you want to use random data for inference, otherwise run the following command to generate JSON files from a set of real pictures. You need to prepare your own real pictures. In the addition, the name of JSON files need to be the same as your model name.
+You can provide data to be used with every inference request made by program in a JSON file. The program will use the provided data in a round-robin order when sending inference requests. Skip this section if you want to use random data for inference (which will not affect the experimental results), otherwise run the following command to generate JSON files from a set of real pictures (from [ImageNet](https://image-net.org/download.php) and [VOC2012](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)). The name of JSON files need to be the same as your model name.
 
 ```
 cd i-Gniter/Launch
